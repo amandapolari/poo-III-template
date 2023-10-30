@@ -7,34 +7,34 @@ export class Account {
     ) {}
 
     public getId(): string {
-        return this.id
+        return this.id;
     }
 
     public setId(value: string): void {
-        this.id = value
+        this.id = value;
     }
 
     public getBalance(): number {
-        return this.balance
+        return this.balance;
     }
 
     public setBalance(value: number): void {
-        this.balance = value
+        this.balance = value;
     }
 
     public getOwnerId(): string {
-        return this.ownerId
+        return this.ownerId;
     }
 
     public setOwnerId(value: string): void {
-        this.ownerId = value
+        this.ownerId = value;
     }
 
     public getCreatedAt(): string {
-        return this.createdAt
+        return this.createdAt;
     }
 
     public setCreatedAt(value: string): void {
-        this.createdAt = value
+        this.createdAt = value;
     }
 }

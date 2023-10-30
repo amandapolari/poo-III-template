@@ -1,4 +1,4 @@
-export class User {    
+export class User {
     constructor(
         private id: string,
         private name: string,
@@ -8,42 +8,42 @@ export class User {
     ) {}
 
     public getId(): string {
-        return this.id
+        return this.id;
     }
-    
+
     public setId(value: string): void {
-        this.id = value
+        this.id = value;
     }
 
     public getName(): string {
-        return this.name
+        return this.name;
     }
 
     public setName(value: string): void {
-        this.name = value
+        this.name = value;
     }
 
     public getEmail(): string {
-        return this.email
+        return this.email;
     }
 
     public setEmail(value: string): void {
-        this.email = value
+        this.email = value;
     }
 
     public getPassword(): string {
-        return this.password
+        return this.password;
     }
 
     public setPassword(value: string): void {
-        this.password = value
+        this.password = value;
     }
 
     public getCreatedAt(): string {
-        return this.createdAt
+        return this.createdAt;
     }
 
     public setCreatedAt(value: string): void {
-        this.createdAt = value
+        this.createdAt = value;
     }
 }

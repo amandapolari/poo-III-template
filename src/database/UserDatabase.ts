@@ -1,39 +1,40 @@
-import { UserDB } from "../types";
-import { BaseDatabase } from "./BaseDatabase";
+import { UserDB } from '../types';
+import { BaseDatabase } from './BaseDatabase';
 
 export class UserDatabase extends BaseDatabase {
-    public static TABLE_USERS = "users"
+    public static TABLE_USERS = 'users';
 
     public async findUsers(q: string | undefined) {
-        let usersDB
+        let usersDB;
 
         if (q) {
-            const result: UserDB[] = await BaseDatabase
-                .connection(UserDatabase.TABLE_USERS)
-                .where("name", "LIKE", `%${q}%`)
+            const result: UserDB[] = await BaseDatabase.connection(
+                UserDatabase.TABLE_USERS
+            ).where('name', 'LIKE', `%${q}%`);
 
-            usersDB = result
+            usersDB = result;
         } else {
-            const result: UserDB[] = await BaseDatabase
-                .connection(UserDatabase.TABLE_USERS)
+            const result: UserDB[] = await BaseDatabase.connection(
+                UserDatabase.TABLE_USERS
+            );
 
-            usersDB = result
+            usersDB = result;
         }
 
-        return usersDB
+        return usersDB;
     }
 
     public async findUserById(id: string) {
-        const [ userDB ]: UserDB[] | undefined[] = await BaseDatabase
-            .connection(UserDatabase.TABLE_USERS)
-            .where({ id })
+        const [userDB]: UserDB[] | undefined[] = await BaseDatabase.connection(
+            UserDatabase.TABLE_USERS
+        ).where({ id });
 
-        return userDB
+        return userDB;
     }
 
     public async insertUser(newUserDB: UserDB) {
-        await BaseDatabase
-            .connection(UserDatabase.TABLE_USERS)
-            .insert(newUserDB)
+        await BaseDatabase.connection(UserDatabase.TABLE_USERS).insert(
+            newUserDB
+        );
     }
 }
