@@ -5,6 +5,7 @@ import { User } from './models/User';
 import { Account } from './models/Account';
 import { UserDatabase } from './database/UserDatabase';
 import { AccountDatabase } from './database/AccountDatabase';
+import { format } from 'date-fns';
 
 const app = express();
 
@@ -99,12 +100,15 @@ app.post('/users', async (req: Request, res: Response) => {
             throw new Error("'id' já existe");
         }
 
+        const currentDate = new Date();
+
         const newUser = new User(
             id,
             name,
             email,
             password,
-            new Date().toISOString()
+            // new Date().toISOString()
+            format(currentDate, 'dd-MM-yyyy')
         ); // yyyy-mm-ddThh:mm:sssZ
 
         const newUserDB: UserDB = {
@@ -223,11 +227,14 @@ app.post('/accounts', async (req: Request, res: Response) => {
             throw new Error("'id' já existe");
         }
 
+        const currentDate = new Date();
+
         const newAccount = new Account(
             id,
             0,
             ownerId,
-            new Date().toISOString()
+            format(currentDate, 'dd-MM-yyyy')
+            // new Date().toISOString()
         );
 
         const newAccountDB: AccountDB = {

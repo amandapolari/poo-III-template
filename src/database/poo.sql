@@ -1,4 +1,4 @@
--- Active: 1675168195024@@127.0.0.1@3306
+-- Active: 1698703880054@@127.0.0.1@3306
 
 CREATE TABLE
     users (
@@ -18,20 +18,29 @@ CREATE TABLE
         FOREIGN KEY (owner_id) REFERENCES users (id) ON UPDATE CASCADE ON DELETE CASCADE
     );
 
-INSERT INTO
-    users (id, name, email, password)
+INSERT INTO users
 VALUES (
         'u001',
         'Fulano',
         'fulano@email.com',
-        'fulano123'
+        'fulano123',
+        '27-10-2023 17:57:01'
     ), (
         'u002',
         'Beltrana',
         'beltrana@email.com',
-        'beltrana00'
+        'beltrana00',
+        '27-10-2023 17:57:01'
     );
 
 INSERT INTO
-    accounts (id, owner_id)
-VALUES ('a001', 'u001'), ('a002', 'u002');
+    accounts (id, owner_id, created_at)
+VALUES (
+        'a001',
+        'u001',
+        '27-10-2023 17:57:01'
+    ), (
+        'a002',
+        'u002',
+        '27-10-2023 17:57:01'
+    );
